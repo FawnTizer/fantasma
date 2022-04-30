@@ -11,7 +11,7 @@ var gameState = "play"
 function preload(){
 fantasma1=loadImage("ghost-standing.png")
 balcon1=loadImage("climber.png")
-puerta=loadImage("door.png")
+puerta=loadImage("door.png")  // este debería ser puerta1
 torre1=loadImage("tower.png")
 }
 
@@ -46,13 +46,13 @@ function draw() {
   
       //escribir aquí el código para mover el fantasma a la izquierda al presionar la flecha izquierda
   if (keyDown("left_arrow")){
-fantasma.x=fantasma.x-3;
+fantasma.x=fantasma.x-3;  // cambiar por velocity
   }
   if (keyDown("right_arrow")){
-    fantasma.x=fantasma.x3;
+    fantasma.x=fantasma.x3;  // cambiar por velocity
       }
       if (keyDown("space")){
-        fantasma.velocityY=-10;
+        fantasma.velocityY=-10; 
           }
     
       //escribir aquí el código para mover el fantasma a la derecha al presionar la flecha derecha
@@ -68,7 +68,7 @@ fantasma.x=fantasma.x-3;
    
       //escribir una condición para desplazar infinitamente la torre
     if (torre.y>400){
-torre.y=300
+torre.y=300; // CAMBIAR A 200 
     }
       // LLAMA A LA FUNCIÓN DE PUERTAS! 
 spawnDoors();
@@ -88,7 +88,7 @@ spawnDoors();
       stroke("yellow");
       fill("yellow");
       textSize(30);
-     // TEXTO DE FIN DE JUEGO 
+     // TEXTO DE FIN DE JUEGO   // falta agregar texto de fin!!! 
     }
     
   drawSprites();
@@ -98,12 +98,12 @@ spawnDoors();
 function spawnDoors() // PARA QUE SIRVE ESTA FUNCION? 
  {
   if (frameCount % 240 === 0) {
-    var puerta = createSprite(200, -50);
+    var puerta = createSprite(200, -50); // 
     puerta.addImage(puerta1)
     var balcon = createSprite(200,10);
     balcon.addImage(balcon1)
     var invisibleBlock = createSprite(200,15);
-    invisibleBlock.width = climber.width;
+    invisibleBlock.width = climber.width;  // no tienes climber, cambia por balcon
     invisibleBlock.height = 2;
   puerta.x=Math.round(random(120,400))
     //agregar la función random para que la puerta aparezca al azar
@@ -116,10 +116,10 @@ function spawnDoors() // PARA QUE SIRVE ESTA FUNCION?
     
     
     puerta.velocityY = 1;
-    climber.velocityY = 1;
+    climber.velocityY = 1; // no tienes climber, cambiar por balcon 
     invisibleBlock.velocityY = 1;
 
-    ghost.depth = door.depth; // PARA QUE SIRVE ESTA INSTRUCCIÓN? 
+    ghost.depth = door.depth; // cambiar ghos y door!!! 
     ghost.depth +=1;
     
      
